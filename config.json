@@ -1,0 +1,4 @@
+{
+    "DB_USERNAME": "testuser",
+    "INMEMORYSTORAGE": true
+}
