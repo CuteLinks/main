@@ -6,6 +6,7 @@ import (
 	"cutelinks/postgres"
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
 	fmt.Println("INMEMORYSTORAGE =",configuration.INMEMORYSTORAGE)
 
 	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-		url := r.FormValue("url")
+		url := strings.ToLower(r.FormValue("url"))
 		if r.Method=="POST" {
 			tinyUrl:=postgres.SaveUrl(generator.String(10), url)
         		fmt.Fprintf(w, tinyUrl)
