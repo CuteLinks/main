@@ -13,14 +13,12 @@ import (
 func main() {
 	configuration:= config.GetConfig()
 	fmt.Println("INMEMORYSTORAGE =",configuration.INMEMORYSTORAGE)
-	redis.SaveUrl("1234567890","wegiuwehgiuehriguheriuhergregw.ru")
-	fmt.Println(redis.GetUrl("1234567890"))
 	randomizer := generator.Randomizer{}
 	gen := generator.New(&randomizer)
 
 	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-		url := strings.ToLower(r.FormValue("url"))
 		if r.Method=="POST" {
+			url := strings.ToLower(r.FormValue("url"))
 			var tinyUrl string
 			if configuration.INMEMORYSTORAGE{
 				tinyUrl=redis.SaveUrl(gen.String(10), url)
@@ -30,6 +28,7 @@ func main() {
 			fmt.Fprintf(w, tinyUrl)
 		}
 		if r.Method=="GET" {
+			url := r.FormValue("url")
 			var fullUrl string
 			if configuration.INMEMORYSTORAGE{
 				fullUrl=redis.GetUrl(url)

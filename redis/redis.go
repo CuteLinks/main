@@ -2,7 +2,6 @@ package redis
 
 import (
 	"cutelinks/config"
-	"fmt"
 	"github.com/go-redis/redis"
 	"log"
 )
@@ -13,16 +12,6 @@ func getRedisConn(dbnum int) *redis.Client{
 		Password: "",
 		DB: dbnum,
 	})
-}
-
-func test()  {
-	fmt.Println("redis test")
-	client0:=getRedisConn(0)
-	client1:=getRedisConn(1)
-	pong,err:=client0.Ping().Result()
-	fmt.Println(pong,err)
-	pong1,err:=client1.Ping().Result()
-	fmt.Println(pong1,err)
 }
 
 func GetUrl(tinyUrl string) string {
