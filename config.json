@@ -1,6 +1,6 @@
 {
     "PORT": "82",
-    "DB_CONN_STR": "user=postgres password=uAufFSV#Lx3e dbname=cutelinks sslmode=disable",
+    "DB_CONN_STR": "host=db user=postgres password=uAufFSV#Lx3e dbname=cutelinks sslmode=disable",
     "DOMAIN": "cutelinks.ru",
     "INMEMORYSTORAGE": false
 }

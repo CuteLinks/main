@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./
+    command: /cutelinks/cutelinks
+    ports:
+    - 82:82
+    depends_on:
+      - db
+    environment:
+      - DB_PASSWORD=uAufFSV#Lx3e
+
+
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+    - ./_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=uAufFSV#Lx3e
+    ports:
+    - 5432:5432
