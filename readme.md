@@ -1,6 +1,6 @@
 *********** сервис сокращения ссылок cutelinks https://github.com/CuteLinks/master запущен на cutelinks.ru ****************
 
-На данный момент реализован сервис сокращения ссылок с сохранением в postgres.
+C сохранением в postgres или redis.
 Настройки находятся в config.json (строка подключения к бд, порт сервиса, тип хранилища).
 Создан dockerfile, сервис сохранен в контейнере на dockerhub, можно скачать командой docker pull cutelinks/cutelinksgo
 

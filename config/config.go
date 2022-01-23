@@ -9,6 +9,8 @@ type Configuration struct {
 	PORT string
 	DOMAIN string
 	DB_CONN_STR string
+	REDIS_ADDR string
+	REDIS_PASSWD string
 }
 
 func GetConfig(params ...string) Configuration{

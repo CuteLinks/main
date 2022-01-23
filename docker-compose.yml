@@ -8,6 +8,7 @@ services:
     - 82:82
     depends_on:
       - db
+      - redis
     environment:
       - DB_PASSWORD=uAufFSV#Lx3e
 
@@ -21,3 +22,9 @@ services:
       - POSTGRES_PASSWORD=uAufFSV#Lx3e
     ports:
     - 5432:5432
+
+  redis:
+    image: redis:latest
+    command: redis-server
+    ports:
+    - 6379:6379
